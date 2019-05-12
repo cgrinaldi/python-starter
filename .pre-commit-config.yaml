@@ -1,0 +1,26 @@
+# pre-commit hooks require a user to have installed `pre-commit`:
+#   $ brew install pre-commit
+# Then install the hooks within the repo:
+#   $ cd /PATH/TO/base-python3 (or whatever your package is located)
+#   $ pre-commit install
+# You only need to run the `install` once per repo
+
+# note that you can update the `sha` versions in this file automatically with the command
+# `pre-commit autoupdate`
+repos:
+-   repo: https://github.com/ambv/black
+    rev: stable
+    hooks:
+    - id: black
+      language_version: python3.7
+
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    rev: v1.2.3
+    hooks:
+    -   id: trailing-whitespace
+    # ensures files are either empty or end with a blank line
+    -   id: end-of-file-fixer
+    # valid python file
+    -   id: check-ast
+    # validates style (see setup.cfg for options)
+    -   id: flake8
