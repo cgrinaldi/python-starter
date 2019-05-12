@@ -6,3 +6,7 @@ def add(x, y):
     :returns: int, the sum of the two numbers
     """
     return x + y
+
+
+def greeting(name: str) -> str:
+    return "Hello " + name

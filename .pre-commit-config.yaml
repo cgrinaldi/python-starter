@@ -24,3 +24,18 @@ repos:
     -   id: check-ast
     # validates style (see setup.cfg for options)
     -   id: flake8
+
+-   repo: local
+    hooks:
+      - id: pytest
+        name: Check pytest unit tests pass
+        entry: pipenv run pytest
+        pass_filenames: false
+        language: system
+        types: [python]
+      - id: mypy
+        name: Check mypy static types match
+        entry: pipenv run mypy python_starter --ignore-missing-imports
+        pass_filenames: false
+        language: system
+        types: [python]
